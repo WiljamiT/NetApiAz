@@ -1,0 +1,45 @@
+# .gitignore
+
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore bin and obj directories
+bin/
+obj/
+
+# Ignore user-specific files
+*.suo
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Ignore the bin and obj directories for the .NET Core SDK
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore the .NET Core Visual Studio Code directories
+.vscode/
+
+# Ignore Rider, Visual Studio, and VS Code directories
+.idea/
+*.suo
+*.ntvs*
+*.nupkg
+*.pfx
+*.snk
+_ReSharper/
+[Tt]est[Rr]esult*/
+[Bb]in
+[Oo]bj
+[Ll]og
+[Ll]ogs/
+
+# Ignore Node.js-related files and directories
+node_modules/
+npm-debug.log*
+.env
+
+# Ignore macOS-specific files
+.DS_Store
