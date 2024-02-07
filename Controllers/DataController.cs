@@ -32,7 +32,7 @@ namespace WebApiReact.Controllers
         [HttpPost("addcustomer", Name = "AddCustomer")]
         public async Task<ActionResult<Customer>> AddCustomer([FromBody] CustomerInputModel customerInput)
         {
-            if (customerInput == null)
+            if (customerInput == null || !IsValidEmail(customerInput.Email))
             {
                 return BadRequest("Invalid input");
             }
@@ -69,7 +69,7 @@ namespace WebApiReact.Controllers
         [HttpPut("updatecustomer/{id}", Name = "UpdateCustomer")]
         public async Task<ActionResult<Customer>> UpdateCustomer(int id, [FromBody] CustomerInputModel updatedCustomerInput)
         {
-            if (updatedCustomerInput == null)
+            if (updatedCustomerInput == null || !IsValidEmail(updatedCustomerInput.Email))
             {
                 return BadRequest("Invalid input");
             }
@@ -87,6 +87,13 @@ namespace WebApiReact.Controllers
             await _dbContext.SaveChangesAsync();
 
             return Ok(existingCustomer);
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            // Add email validation logic based on your requirements
+            // For simplicity, you can use regular expressions or other validation methods
+            return !string.IsNullOrWhiteSpace(email);
         }
     }
 
